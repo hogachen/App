@@ -1,0 +1,130 @@
+
+                SecureFX(R) 6.7 (Beta) -- May 3, 2011
+
+            Copyright (C) 1995-2011 VanDyke Software, Inc.
+                       All rights reserved.
+
+
+This file contains a SecureFX product history.  It includes lists of
+new features, changes, and bug fixes sorted by release.  For a product
+description, installation notes, registration information, and contact
+information, please refer to Readme.txt (downloaded with this 
+installation).
+
+
+Changes in SecureFX 6.7 (Beta 4) -- May 3, 2011
+-----------------------------------------------
+
+Bug fixes:
+
+  - If a transfer was cancelled while multiple files were being
+    downloaded and then the session was closed and reconnected,
+    attempting to resume the transfer caused SecureFX to crash.
+  - SecureFX menu customizations were sometimes not saved. 
+  - When the /F parameter was used on the command line to specify
+    the location of the configuration folder and the menu or toolbar
+    was customized, the changes were not saved.
+  - FTP: SecureFX could crash when a folder was being uploaded due
+    to the way Send requests were handled.
+
+
+Changes in SecureFX 6.7 (Beta 3) -- April 12, 2011
+--------------------------------------------------
+
+Bug fixes:
+
+  - If the menu items "Add Bookmark" or "Open Bookmark" were added to
+    the toolbar through customization and then were clicked after
+    connecting to a host, SecureFX crashed.
+  - If a session that used a firewall was connected and disconnected
+    and then the session was modified to use a different firewall and
+    then reconnected, the old firewall was used.
+  - If the display of the Connect bar was toggled from the View menu
+    and then modified in the Global Options dialog, the change in the
+    Global Options dialog was not honored. 
+  - If files were dragged from Windows Explorer into an empty local
+    folder in SecureFX, the view was updated, but not all the files
+    that had been dragged over were displayed.
+  - If a synchronize session's direction was set to "Mirror local" and
+    then was changed to "Mirror remote", the direction was not
+    displayed correctly in the Synchronize Session Properties dialog
+    even though the correct direction was used for the synchronize
+    operation.
+  - After pressing the ALT key and then the ENTER key, SecureFX
+    attempted to connect to a host named "<ALT+R>".
+
+
+Changes in SecureFX 6.7 (Beta 2) -- March 24, 2011
+--------------------------------------------------
+
+Changes:
+
+  - Removed warning message about toolbar and menu bar needing to be
+    updated.
+  - Added keyboard accelerators for the bookmark functions.  CTRL+B
+    adds a bookmark and CTRL+O opens a bookmark.
+
+Bug fixes:
+
+  - SecureFX could crash when connecting to a session in a third tab.
+  - It was not possible to get the Connect bar back if it was removed
+    from the toolbar.
+  - The Connect bar did not work when it was placed on the menu bar.
+  - Fixed a typo in log message: "Could not set file attibutes" is now
+    "Could not set file attributes".
+
+
+Changes in SecureFX 6.7 (Beta 1) -- March 8, 2011
+-------------------------------------------------
+
+New features:
+
+  - Added the ability to set and open bookmarks for frequently used
+    folders.
+  - Added an optional connect bar, which allows a connection to be
+    made by entering the host on the toolbar.
+  - Added an option to the Connect dialog to sort sessions logically,
+    which is helpful when session names contain numbers.
+  - Added the ability to copy and paste files from Eclipse to SecureFX.
+  - SFXCL: Added a flag "/TransferType" which specifies the transfer
+    type for all the files in the operation.
+  - SFXCL: Added the ability to specify that the log file should be
+    overwritten.
+
+Changes:
+
+  - If the option "Verify status on retrieve" is set, a STAT will
+    always be issued before getting a file.  This makes the progress
+    information more accurate for multiple file transfers if a file
+    size changed between the time the transfer was started and the
+    file was transferred.
+  - SecureFX and SFXCL logs now indicate whether a file was transferred
+    as binary or ASCII.
+  - A duplicate message that was logged for file transfers statistics
+    in server-to-server transfers was removed.
+  - Entering the license data now registers the application for all
+    users instead of only for the current user.
+  - FTP: Changed the default value of the global options "Send Size"
+    and "Receive Size" to 65535 in order to improve FTP transfer speed.
+  - FTP, FTP/SSL: SecureFX attempts to use the control address for data
+    connections first, which speeds up connection time in most cases.
+    This change is only seen in new sessions.
+  - FTP/SSL: When attempting to connect, a message showing the remote
+    host is now logged.
+  - SFXCL: Output is now written to stdout instead of stderr.
+
+Bug fixes:
+
+  - SecureFX crashed if a session was reconnected after its protocol
+    was changed from FTP to SFTP.
+  - SecureFX could crash when a second instance was started.
+  - If the maximum number of parallel transfers was set to 8, SecureFX
+    became unresponsive when attempting to transfer a large number of
+    files (e.g., 10,000).
+  - SecureFX was unable to download files from an EldoS server.
+  - If the option "Disable directory tree detection" was set, file
+    attributes were not set during transfer operations.
+  - Double-clicking a folder that the current user did not have access
+    to left focus in that folder.
+  - SFXCL: If the "noprompt" parameter was specified, the invalid
+    public key error was not reported.

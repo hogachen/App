@@ -1,0 +1,250 @@
+
+                SecureCRT(R) 6.7 (Beta) -- May 3, 2011
+
+            Copyright (C) 1995-2011 VanDyke Software, Inc.
+                        All rights reserved.
+
+
+This file contains a SecureCRT product history.  It includes lists 
+of new features, changes, and bug fixes sorted by release.  For a 
+product description, installation notes, registration information,
+and contact information, please refer to Readme.txt (downloaded 
+with this installation).
+
+
+Changes in SecureCRT 6.7 (Beta 4) -- May 3, 2011
+------------------------------------------------
+
+Bug fixes:
+
+  - SecureCRT could crash on exit due to the way threads were being
+    cleaned up.
+  - SecureCRT crashed if a session with the "Auto reconnect" and
+    "Close on disconnect" options enabled was disconnected.
+  - SecureCRT crashed after pressing OK on the "Session Options", 
+    "Lock Session", or "Confirm Disconnect" dialog if the session 
+    that launched it had been closed after the dialog was displayed.
+  - SecureCRT crashed after pressing OK on a script dialog if the
+    session that launched the script had been closed after the dialog
+    was displayed.
+  - When the /F parameter was used on the command line to specify
+    the location of the configuration folder and the menu or toolbar
+    was customized, the changes were not saved.
+  - A pop-up error message was displayed if the script method
+    GetOption() was called with an unknown option name.
+  - Serial: After connecting to a Windows COM port and then pressing
+    any key, the CPU was pegged.
+  - SSH2/SSH1: When a session established a port forward that launched
+    an application, if the session attempted to connect using both an
+    IPv4 and IPv6 address, two instances of the application were
+    launched.
+  - Windows: On Windows XP, if the display theme was set to Blue,
+    Black, Aqua, or Silver and more than one SecureCRT window was
+    connected to a session and "Send chat to all tabs" was used to
+    send text to one of the sessions, it caused the other window to
+    freeze.
+  - Mac: If SecureCRT was run on a Mac system with the keyboard and
+    mouse being controlled from another system running Synergy in
+    server mode, the arrow keys did not work.
+  - Mac: In the "Connect" dialog, the search string from the "Find
+    Session" dialog was not remembered for subsequent searches.
+
+
+Changes in SecureCRT 6.7 (Beta 3) -- April 12, 2011
+---------------------------------------------------
+
+Bug fixes:
+
+  - If the Connect bar was removed from the toolbar through
+    customization and then SecureCRT was restarted, attempting to
+    bring up the customization dialog caused SecureCRT to crash.
+  - If a script that called Crt.Screen.Send() was repeatedly run,
+    it could cause terminal corruption and possibly a crash.
+  - Under certain circumstances, after editing the Default session
+    and attempting to apply the changes to all sessions, SecureCRT
+    hung.
+  - Scripts that called Crt.Screen.Send() to send end of line
+    characters had different behavior than they did prior to
+    version 6.7.
+  - After pressing the ALT key and then the ENTER key, SecureCRT
+    attempted to connect to a host named "<ALT+R>".
+  - When the SecureCRT window was resized by dragging the mouse,
+    the rows and columns displayed in the status bar were not
+    updated until the mouse button was released.
+  - If the Connect bar was removed from the toolbar through
+    customization and SecureCRT was restarted, the Global Options
+    dialog incorrectly showed that the Connect bar was visible.
+  - Mac and Linux: SecureCRT crashed when attempting to connect to
+    a session with a misconfigured HTTP firewall.
+
+
+Changes in SecureCRT 6.7 (Beta 2) -- March 24, 2011
+---------------------------------------------------
+
+Changes:
+
+ - Removed warning message about toolbar and menu bar needing to be
+   updated.
+ - Linux: On Red Hat Enterprise Linux 5.5, the SecureCRT launcher
+   icon is now installed into the Gnome system panel menu.
+
+Bug fixes:
+
+  - Windows: It was not possible to get the Connect bar back if it
+    was removed from the toolbar.
+  - Windows: The Connect bar did not work when it was placed on the
+    menu bar.
+  - Windows: On Windows 7, if the corner of the SecureCRT window was
+    dragged to the top of the desktop, the full height option did
+    not work.
+  - Mac: When the accelerator COMMAND+` was used to cycle through
+    the SecureCRT windows, a "`" character was inserted into the
+    session.
+  - Mac: If two sessions were connected in different windows and one
+    of the sessions was maximized and the second session was dragged
+    into the first window and then sent out to a new window, the
+    second session was not the correct size.
+  - Mac/Linux: If an invalid license was on the clipboard, the
+    license wizard did not display the correct text.
+  - Linux: On 32-bit Ubuntu 10.x, it was not possible to add SSH1
+    keys to the agent.
+  - Linux: Selecting "Exit" from the File menu closed all SecureCRT
+    windows instead of just the current window.
+
+
+Changes in SecureCRT 6.7 (Beta 1) -- March 8, 2011
+--------------------------------------------------
+
+New features:
+
+  - Linux versions for Ubuntu 10.x (32-bit and 64-bit) and Red Hat
+    Enterprise Linux 5.5 (32-bit and 64-bit).
+  - Added an optional connect bar, which allows a connection to be
+    made by entering the host on the toolbar.
+  - Added support for recording Python scripts.
+  - Added the ability to add more than ten buttons to a button bar.
+  - Added the ability to copy buttons from one button bar and paste
+    them on another button bar.
+  - Added the ability to move buttons within a button bar.
+  - Added the ability to map a key or button to browse for a script
+    to run.
+  - Added the ability to configure the double-click tab action to be
+    "Clone Tab in New Window".
+  - Added an option to the Connect dialog to sort sessions logically,
+    which is helpful when session names contain numbers.
+  - In the Session Options dialog, added ability to sort columns in
+    the Connection / Port Forwarding category.
+  - Added support for in-line composition of IME characters so that
+    IME characters are inserted into the session window as they are
+    typed.
+  - Added the script function FileOpenDialog() that displays the file
+    browser and returns the selected file.
+  - Added the script function ScriptFullName() that returns the full
+    path and filename of the currently running script.
+  - Added an optional parameter to the scripting function Connect()
+    that allows pop-up messages to be suppressed.
+  - Added the ability to specify a listening IP address when setting
+    up a local or remote port forward from the command line.
+  - Added a global INI-file-only option "Script MRU Count" that
+    allows the number of scripts displayed in the recently used
+    script list to be specified.
+  - When the global INI-file-only option "Single Instance" is set
+    and SecureCRT is already running, shortcuts that use the /S flag
+    now open the specified session in a new tab.
+  - Windows: Environment variables can be specified when assigning a
+    "Run Script" or "Launch Application" function to a button or key.
+  - Mac: If a file or folder is dragged to a local shell session, the
+    path to the file is pasted into the session.  When a file or
+    folder is dragged to the remote session, there is now a "Paste
+    Path" option on the menu that is displayed.
+  - Mac: Added the ability to specify SecureCRT as the default
+    Telnet handler so that HTML links to Telnet sessions connect to
+    the specified session in SecureCRT.
+  - Mac: Added support for the following character encodings: GB2312,
+    BIG5 (950), Korean (949), Shift JIS (932).
+  - Mac: Added support for the /T command-line option.
+
+Changes:
+
+  - Line and character send delay settings are now honored for
+    buttons and keys mapped to send strings.
+  - When pasting text into SecureCRT, LF is converted to CRLF.
+  - The session option "Enforce X11 Authentication" can now be set in
+    the Session Options dialog.  Previously, it had to be set manually
+    in the session .INI file.
+  - The button and keymap Menu function MENU_TAB_NEXT now has the same
+    behavior as pressing and releasing CTRL+TAB.  The Menu function
+    MENU_TAB_PREV now has the same behavior as pressing and releasing
+    SHIFT+CTRL+TAB.
+  - If a script is already running and an attempt is made to run another
+    script, a message is displayed.
+  - Windows: Entering the license data now registers the application
+    for all users instead of only for the current user.
+  - Mac: Scrolling performance has been improved.
+  - Mac: The auto session list now displays icons for the items in the
+    list.
+  - Mac: The history, readme, and EULA files are installed in the
+    /Library/Application Support/VanDyke/SecureCRT folder.
+
+Bug fixes:
+
+  - If SecureCRT closed while a dialog was being displayed, it
+    crashed.
+  - If an escape sequence that sent a large file (1 MB or larger) was
+    running and SecureCRT was exited during the send, it crashed.
+  - If a script set a session's columns to be larger than the
+    maximum number of columns and then that session was used,
+    SecureCRT crashed.
+  - SecureCRT could crash if it was in the process of closing and a
+    script attempted to access an object that no longer existed.
+  - SecureCRT could crash when a second instance was started.
+  - SecureCRT terminal locked up after exiting a remote command such
+    as "vi" or "man" if the window was resized while the command was
+    running.
+  - Python scripts that contained a Unicode character in the script
+    name could not be run.
+  - In some cases, screen reading software such as JAWS was not able
+    to track the cursor when the cursor style was set to "Block".  If
+    the "Use trackable insertion carat" option is set, the "Vertical
+    Bar" cursor style is now used.
+  - If a key or button was mapped to launch an application that did
+    not have an ".EXE" file extension and an argument was specified,
+    the specified argument was not saved.
+  - If a session used ANSI color and a color scheme and the scrollback
+    buffer contained text, if ANSI color was disabled and re-enabled,
+    some characters in the scrollback buffer were displayed using
+    incorrect foreground and background colors.
+  - Highlighted text sometimes flickered.
+  - In the Connect dialog, if the right mouse button was clicked on
+    title bar or toolbar, the context menu was not displayed at the
+    mouse cursor.
+  - Telnet: When an unrecognized IAC SB option was received, garbage
+    was displayed in the session.
+  - SSH1/SSH2: On Windows Vista and Windows 7, if "localhost" was
+    specified for port forwarding, it resolved to an IPv6 address,
+    which caused the port forward to fail.
+  - SFTP: In the SFTP tab, when an "ls" command was issued and the
+    files had long names, the spacing of the output was not correct.
+  - SFTP: In the SFTP tab, tab completion did not work with character
+    encodings such as utf-8, koi8-r, and OEM=cp866.
+  - Windows: When a Perl script was specified on the SecureCRT command
+    line, an error was thrown if the script called Crt->Quit().
+  - Mac: SecureCRT crashed if a session was being renamed from the
+    Connect dialog and then another action such as Edit or Delete was
+    performed on that session.
+  - Mac: Viewing a host key could cause SecureCRT to crash.
+  - Mac: On keyboards where "+", "]", and "*" are on the same key,
+    keyboard shortcuts using those keys did not work in applications
+    such as vi and vim.
+  - Mac: If a script was launched from a button or mapped key, the
+    script could not be cancelled from the Script menu.
+  - Mac: If SecureCRT was displayed on a second monitor that was larger
+    than the first monitor and was later run with only the first
+    monitor connected, it was not possible to resize the window to fit
+    on the screen.
+  - Mac: If the SecureCRT window was moved to a different location
+    before connecting to a session and then it was exited, flashing
+    occurred the next time SecureCRT started.
+  - Mac: If "%U" was specified in the Title bar for a local shell
+    session, the user name was not substituted.
+
